@@ -14,13 +14,13 @@ properties(
 
 switch(params.ENVIRONMENT) {
     case "dev":
-        ACCOUNT = "567316365753"
+        ACCOUNT = "aaaaaaaaa"
         break
     case "prod":
-        ACCOUNT = "704506075394"
+        ACCOUNT = "bbbbbbbbb"
         break
     default:
-        ACCOUNT = "567316365753"
+        ACCOUNT = "ccccccccc"
         break
 }
 
