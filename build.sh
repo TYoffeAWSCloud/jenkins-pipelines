@@ -3,6 +3,13 @@ api_blueprint_generated_file="api/api.apib"
 output_file="output/output.html"
 build=''
 
+function envFileExist {
+  envFile=".env.$1"
+  if [ ! -f "$envFile"  ]; then
+    echo "File $envFile could not be found please create one using the $envFile.example template."
+  fi
+}
+
 function remove_output_file {
   if [ -f $output_file ]; then
       unlink $output_file
@@ -25,11 +32,13 @@ if [[ $2 == 'build' ]]; then
 fi;
 
 if [[ $1 == 'production' ]]; then
+    envFileExist $1
     remove_output_file
     docker-compose -f docker-compose.yml up $build
 fi;
 
 if [[ $1 == 'local' ]] || [[ $1 == 'development' ]]; then
+    envFileExist $1
     remove_output_file
     docker-compose -f docker-compose.yml -f docker-compose.$1.yml up $build
 fi;

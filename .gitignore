@@ -1,0 +1,8 @@
+.idea
+yarn-error.log
+.vscode
+node_modules
+output/output.html
+output/report.html
+api/api.apib
+*.log

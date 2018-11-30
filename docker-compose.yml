@@ -1,0 +1,13 @@
+version: '3'
+services:
+  api:
+    image: docs
+    build: ./
+    env_file:
+      - .env.production
+    volumes:
+      - ./src:/doc/src
+      - ./api:/doc/api
+      - ./yarn.lock:/doc/yarn.lock
+      - ./package.json:/doc/package.json
+      - ./output:/doc/output
